@@ -1,8 +1,8 @@
 import Slider from "./slider";
 
 export default class MainSlider extends Slider {
-  constructor(page, btns) {
-    super(page, btns)
+  constructor(btns) {
+    super(btns)
   }
 
   // n - Направление слайдера. Если +1 то вперед, если -1 то назад
@@ -58,7 +58,7 @@ export default class MainSlider extends Slider {
         this.plusSlides(1)
       })
 
-      btn.parentNode.previousSibling.addEventListener('click', (e) => {
+      btn.parentNode.previousElementSibling.addEventListener('click', (e) => {
         e.preventDefault()
         this.slideIndex = 1
         this.showSlides(this.slideIndex)
