@@ -5,7 +5,7 @@ export default class MiniSlider extends Slider {
     super(container, prev, next, activeClass, animate, autoplay);
   }
 
-  decorizeSlides() {
+  decorateSlides() {
     Array.from(this.slides).forEach(slide => {
       slide.classList.remove(this.activeClass)
       if (this.animate) {
@@ -28,29 +28,31 @@ export default class MiniSlider extends Slider {
     this.prev.addEventListener('click', () => {
       // Последний слайд помещаем в начало списка
       this.container.insertBefore(this.slides[this.slides.length - 1], this.slides[0])
-      this.decorizeSlides()
+      this.decorateSlides()
     })
   }
 
   nextSlide() {
     // Первый слайд помещаем в конец списка
     this.container.appendChild(this.slides[0])
-    this.decorizeSlides()
+    this.decorateSlides()
   }
 
   init() {
-    this.container.style.cssText = `
+    if(this.container) {
+      this.container.style.cssText = `
       display: flex;
       flex-wrap: wrap;
       overflow: hidden;
       align-items: flex-start;
     `
 
-    this.bindTriggers()
-    this.decorizeSlides()
+      this.bindTriggers()
+      this.decorateSlides()
 
-    if (this.autoplay) {
-      setInterval(() => this.nextSlide(), 5000)
+      if (this.autoplay) {
+        setInterval(() => this.nextSlide(), 5000)
+      }
     }
   }
 }
