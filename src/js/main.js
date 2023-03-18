@@ -2,6 +2,7 @@ import MainSlider from "./modules/slider/mainSlider";
 import MiniSlider from "./modules/slider/miniSlider";
 import Difference from "./modules/difference";
 import VideoPlayer from "./modules/playVideo";
+import Form from "./modules/form";
 
 window.addEventListener('DOMContentLoaded', () => {
   const slider = new MainSlider({
@@ -42,4 +43,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const player = new VideoPlayer('.showup .play', '.overlay')
   player.init()
+
+  new Form('form').init()
 })
