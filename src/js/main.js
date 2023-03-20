@@ -2,6 +2,8 @@ import MainSlider from "./modules/slider/mainSlider";
 import MiniSlider from "./modules/slider/miniSlider";
 import Difference from "./modules/difference";
 import VideoPlayer from "./modules/playVideo";
+import ShowInfo from "./modules/showInfo";
+import Download from "./modules/download";
 import Form from "./modules/form";
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -51,4 +53,8 @@ window.addEventListener('DOMContentLoaded', () => {
   new VideoPlayer('.module__video-item .play', '.overlay').init()
 
   new Form('form').init()
+
+  new ShowInfo('.module__info-show').init()
+
+  new Download('.download', 'assets/img/mainbg.jpg').init()
 })
